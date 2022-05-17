@@ -1,0 +1,30 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.firstScreen{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 1280px;
+    height: 720px;
+    text-align: center;
+    background-image: url("supernotes.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.btnLogin{
+    margin-top: 570px;
+    padding: 2%;
+    width: 30%;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
