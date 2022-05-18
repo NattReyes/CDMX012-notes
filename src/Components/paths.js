@@ -14,7 +14,7 @@ const Paths = ({isAutenticate}) => {
             <Routes>
                 <Route path="/" element={<AllNotes logout={logout} />}>
                 </Route>
-                <Route path="/writeNotes" element={<WriteNotes/>}>
+                <Route path="/writeNotes" element={<WriteNotes />}>
                 </Route>
             </Routes>:
             <Routes>

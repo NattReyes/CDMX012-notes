@@ -1,22 +1,23 @@
 .allNotes{
     margin: 0px;
     padding: 0px;
-    width: 1280px;
-    height: 800px;
+    width: 100%;
+    /*height: 720px;*/
     font-family: 'DM Sans';
     background-color: rgb(232, 44, 44);
     font-family: 'Open Sans', sans-serif;
-}
-
-.header{
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    width: 1280px;
-    height: 800px;
+    display: flex;
+    flex-direction: column;
     background-image: url("allNotes.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+.header{
+    margin-top: 1%;
+    
+    
 }
 
 .addBtn{
@@ -49,14 +50,80 @@ align-items: center;
     border-radius: 25px;
 }
 
-.yoda{
+.groot{
 width: 250px;
 float: right;
 margin-top: 200px;
 }
 
+.btnSave{
+    float: right;
+    margin-top: -330px;
+        margin-right: -200px;
+    }
+    .btnBack{
+        float: left;
+        margin-left: 3%;
+    }
 .note{
     height: 500px;
     width: 800px;
-    font-size: 50px;
+}
+
+.containerAllNotes{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    
+}
+
+
+.containerBorderShowNote{
+background-color: #219DD9;
+width: 200px;
+height: 200px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.containerShowNote{
+    background-color: white;
+    width: 170px;
+    height: 170px;
+    border-radius: 25px;
+    display: flex;
+}
+
+.noteShowText{
+    margin: 5%;
+}
+
+textarea{
+    resize: none;
+    margin-left: 2%;
+}
+
+.titleNote{
+    font-size: 40px;
+    margin-top: 2%;
+}
+.rememberNote{
+    font-size: 30px;
+}
+
+h1{
+    font-size: 25px;
+}
+
+p{
+    font-size: 20px;
+}
+
+.btnDelete{
+    margin-bottom: 5px;
 }

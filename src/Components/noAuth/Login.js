@@ -1,4 +1,4 @@
-//import supernotes from "../noAuth/supernotes.png"
+import googleLogo from "../noAuth/google.jpg"
 import "../noAuth/Login.css"
 
 
@@ -7,6 +7,7 @@ function Login({ loginWithGoogle }) {
         <button onClick={() => {
             loginWithGoogle();
         } } className="btnLogin">
+            <img src={googleLogo} alt="" className="googleLogo"/>
             Login with Google
         </button>
     </section>);
