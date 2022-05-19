@@ -10,7 +10,8 @@ import {
     collection,
     query,
     onSnapshot,
-    
+    deleteDoc,
+    doc,
   } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js'
 
   /*const Show = () => {
@@ -66,7 +67,9 @@ function AllNotes({logout}) {
       return () => unsub();
     }, []);
 
-    
+    const deleteNote = async (id) => {
+        await deleteDoc(doc(db, "notes", id));
+      };
     return(
         <section className="allNotes">
               <div className="header">
@@ -83,7 +86,7 @@ function AllNotes({logout}) {
              <div key={note.id} className="noteShowText">
               <h1>{note.title}</h1>
               <p>{note.note}</p>
-              <button className="btnDelete" ><img src={deletebtn} alt=""/></button>
+              <button className="btnDelete" onClick={() => deleteNote(note.id)}><img src={deletebtn} alt=""/></button>
               </div> 
               </div>
      </div>

@@ -20,13 +20,14 @@
     
 }
 
-.addBtn{
+.btnExit{
     margin-top:200px;
     float: right;
     margin-right: 150px;
 }
 
-.btnExit{
+
+.addBtn{
     margin-top:200px;
     float: left;
     margin-left: 150px;
