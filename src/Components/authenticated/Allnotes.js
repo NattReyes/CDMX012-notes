@@ -1,9 +1,11 @@
 import "../authenticated/Allnotes.css"
 import add from "../authenticated/add.png"
+import editBtn from "../authenticated/edit.png"
 import deletebtn from "../authenticated/delete.png"
 import exit from "../authenticated/exit.png"
 //import { WriteNotes } from "./writeNotes"
 import { Link } from 'react-router-dom'
+import { auth } from "../../lib/firebaseConfig";
 import { db } from "../../lib/firebaseConfig"
 import React, { useState, useEffect } from 'react'
 import {
@@ -12,6 +14,7 @@ import {
     onSnapshot,
     deleteDoc,
     doc,
+    orderBy,
   } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js'
 
   /*const Show = () => {
@@ -54,13 +57,17 @@ import {
   */
 
 function AllNotes({logout}) {
+
     const [notes, setTitle] = useState([]);
     useEffect(() => {
-      const q = query(collection(db, "notes"));
+      console.log(auth.currentUser.email)
+      const q = query(collection(db, "notes"), orderBy('timestamp', 'desc'));
       const unsub = onSnapshot(q, (querySnapshot) => {
         let todosArray = [];
         querySnapshot.forEach((doc) => {
-          todosArray.push({...doc.data(), id: doc.id });
+          if(doc.data().email===auth.currentUser.email){
+            todosArray.push({...doc.data(), id: doc.id });
+          } 
         });
         setTitle(todosArray);
       });
@@ -86,8 +93,14 @@ function AllNotes({logout}) {
              <div key={note.id} className="noteShowText">
               <h1>{note.title}</h1>
               <p>{note.note}</p>
-              <button className="btnDelete" onClick={() => deleteNote(note.id)}><img src={deletebtn} alt=""/></button>
+              
               </div> 
+              <footer>
+              <button className="btnDelete" onClick={() => deleteNote(note.id)} ><img src={deletebtn} alt=""/></button>
+              <Link to={`/editNotes/${note.id}`}>
+              <button type="button" className="btnEdit"><img src={editBtn} alt=""/></button>
+              </Link>
+              </footer>
               </div>
      </div>
      )) }
@@ -95,6 +108,7 @@ function AllNotes({logout}) {
      </div>
      </section>
     )
+        
 }
 
 
